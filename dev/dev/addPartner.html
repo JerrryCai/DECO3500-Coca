@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Partner</title>
+    <script src="script.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: gray;
+      }
+      .bg {
+        margin: 50px auto;
+        width: 300px;
+        position: relative;
+      }
+      .phoneBg {
+        width: 300px;
+      }
+      .partnerTitle {
+        position: absolute;
+        top: 70px;
+        left: 46px;
+        font-size: 20px;
+      }
+      .searchBox {
+        width: 160px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 30px;
+        position: absolute;
+        left: 50px;
+        top: 150px;
+        box-shadow: 0 2px 2px #8ac6d1;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .search {
+        display: block;
+        width: 60px;
+        height: 25px;
+        background-color: white;
+        padding-left: 10px;
+        line-height: 25px;
+        position: absolute;
+        left: 70px;
+        top: 135px;
+        font-size: 12px;
+      }
+      .searchDiv .searchIconImg {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: white;
+        top: 157px;
+        right: 68px;
+      }
+      .resultDiv {
+        width: 180px;
+        height: 25px;
+        border-radius: 30px;
+        border: 1px solid black;
+        position: absolute;
+        top: 200px;
+        left: 50px;
+        line-height: 25px;
+        padding: 5px 10px;
+        display: none;
+      }
+
+      .resultDiv .icon {
+        width: 23px;
+        height: 23px;
+        float: right;
+        border-radius: 50%;
+        border: 1px solid black;
+      }
+      .resultDiv .photo {
+        width: 25px;
+        height: 25px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 0px solid black;
+        background-color: gray;
+      }
+      /* skip */
+      #skip{
+        position: absolute;
+        top: 200px;
+        right: 50px;
+        font-size: 12px;
+        color: rgb(158, 156, 156);
+      }
+      .searchBtn {
+        width: 200px;
+        height: 40px;
+        border: 1px solid black;
+        border-radius: 30px;
+        position: absolute;
+        background-color: #ffb6b9;
+        top: 300px;
+        left: 50px;
+      }
+      .alert {
+        width: 200px;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: 0 3px 2px #8ac6d1;
+        border: 1px solid black;
+        position: absolute;
+        background-color: white;
+        top: 160px;
+        left: 50px;
+        text-align: center;
+        font-size: 15x;
+        display: none;
+      }
+      .alert button {
+        width: 60px;
+        margin: 10px;
+        border-radius: 10px;
+      }
+      .alert .yes {
+        background-color: #8ac6d1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg">
+      <img class="phoneBg" src="./image/phone.png" />
+      <h2 class="partnerTitle">Add your partner</h2>
+      <div class="searchDiv">
+        <input type="text" class="searchBox" />
+        <span class="search">Search</span>
+        <span class="searchIcon"></span>
+        <img
+          class="searchIconImg"
+          src="image/iconSearch.png"
+          alt="searchIcon"
+        />
+      </div>
+      <span id="skip" >skip-></span>
+      <div class="resultDiv">
+        <img class="photo" src="./image/robin.jpg" alt="robinPhoto" />
+        <span class="name">Robin</span>
+        <span class="icon"></span>
+      </div>
+      <button class="searchBtn">Search</button>
+      <!-- alert box -->
+      <div class="alert">
+        <p>Are you sure to add Robin as your partner?</p>
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+      </div>
+    </div>
+
+    <script>
+      var searchBtn = document.querySelector(".searchBtn");
+      var resultDiv = document.querySelector(".resultDiv");
+      var searchBtn = document.querySelector(".searchBtn");
+      var searchDiv = document.querySelector(".searchDiv");
+      var icon = document.querySelector(".icon");
+      var alert = document.querySelector(".alert");
+      var yesBtn = document.querySelector(".yes");
+      var noBtn = document.querySelector(".no");
+      var resultDivIcon = document
+        .querySelector(".resultDiv")
+        .querySelector(".icon");
+      var searchIconImg = document.querySelector(".searchIconImg");
+      var skip = document.querySelector('#skip');
+
+      skip.style.cursor = 'pointer';
+      resultDivIcon.style.cursor = "pointer";
+      yesBtn.style.cursor = "pointer";
+      noBtn.style.cursor = "pointer";
+      searchIconImg.style.cursor = "pointer";
+      searchBtn.style.display = 'none';
+      
+      searchIconImg.onclick = function () {
+        resultDiv.style.display = "block";
+        searchBtn.style.backgroundColor = "#FAE3D9";
+        searchBtn.innerHTML = "Add";
+        searchBtn.style.display = 'block';
+        skip.style.display = 'none';
+      };
+
+      icon.onclick = function () {
+        searchBtn.style.cursor = "pointer";
+        resultDiv.style.backgroundColor = "#BBDED6";
+        icon.style.backgroundColor = "#8AC6D1";
+        searchBtn.style.backgroundColor = "#FFB6B9";
+        searchBtn.onclick = function () {
+          searchDiv.style.display = "none";
+          resultDiv.style.display = "none";
+          searchBtn.style.display = "none";
+          alert.style.display = "block";
+          yesBtn.onclick = function () {
+            window.location.href = "home.html";
+          };
+          noBtn.onclick = function () {
+            window.location.href = "addPartner.html";
+          };
+        };
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>index</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                background-color: gray;
+            }
+
+            .bg{
+                margin: 50px auto;
+                width: 300px;
+                position: relative;
+            }
+
+            .phoneBg{
+                width: 300px;
+            }
+
+            .title{
+                position: absolute;
+                top:90px;
+                left: 50px;
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+            .phoneBox{
+                width: 160px;
+                height: 30px;
+                border: 1px solid black;
+                border-radius: 30px;
+                position: absolute;
+                left: 50px;
+                top: 160px;
+                box-shadow: 0 2px 2px #8AC6D1;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .phone{
+                display: block;
+                width: 60px;
+                height: 25px;
+                background-color: white;
+                padding-left: 10px;
+                line-height: 25px;
+                position: absolute;
+                left: 70px;
+                top:145px;
+                font-size: 12px;
+            }
+
+            .phoneIcon{
+                position: absolute;
+                display: block;
+                width: 20px;
+                height: 20px;
+                top:167px;
+                right: 68px;
+                background-color: #fff;
+            }
+
+            .passwordBox{
+                width: 160px;
+                height: 30px;
+                border: 1px solid black;
+                border-radius: 30px;
+                position: absolute;
+                left: 50px;
+                top: 235px;
+                box-shadow: 0 2px 2px #FFB6B9;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .password{
+                display: block;
+                width: 60px;
+                height: 25px;
+                background-color: white;
+                line-height: 25px;
+                position: absolute;
+                left: 70px;
+                top:220px;
+                font-size: 12px;
+                padding-left: 10px;
+            }
+
+            .passwordIcon{
+                position: absolute;
+                display: block;
+                width: 23px;
+                height: 23px;
+                top:241px;
+                right: 68px;
+                background-color: white;
+            }
+
+            .login{
+                width: 180px;
+                height: 30px;
+                border: 0px solid;
+                border-radius: 30px;
+                background-color: #FFB6B9;
+                position: absolute;
+                left: 63px;
+                top:305px;
+            }
+
+            .signup{
+                width: 180px;
+                height: 30px;
+                border: 0px solid #BBDED6;
+                border-radius: 30px;
+                background-color: transparent;
+                position: absolute;
+                left: 63px;
+                bottom: 210px;
+            }
+        </style> 
+    </head>
+
+    <body>
+        <div class="bg">
+            <img class="phoneBg" src="./image/phone.png" alt="phoneBackground"/>
+            <div class="title">Log in</div>
+            <!-- Phone Bar -->
+            <input type="text" class="phoneBox" value="">
+            <span class="phone">Phone</span>
+            <span class="phoneIcon"></span>
+            <img class="phoneIcon" src="./image/iconPhone.png" alt="phoneIcon"/>
+            <!-- Password Bar -->
+            <input type="password" class="passwordBox" value="" >
+            <span class="password">Password</span>
+            <span class="passwordIcon"></span>
+            <img class="passwordIcon" src="./image/iconLock.png" alt="lockIcon"/>
+            <!-- Log in button -->
+            <button class="login">Log in</button>
+            <button class="signup">Sign up</button>
+
+        </div>
+
+        <script>
+            var loginBtn = document.querySelector('.login');
+            var phoneBox = document.querySelector('.phoneBox');
+            var passwordBox = document.querySelector('.passwordBox');
+
+            loginBtn.style.cursor = "pointer";
+
+            loginBtn.onclick = function(){
+                if (phoneBox.value == ''){
+                    alert('Please input your phone number!');
+                }else{
+                    if (passwordBox.value == ''){
+                        alert('Please input your password!');
+                    }
+                    else{
+                        window.location.href = 'addPartner.html';
+                    }
+                }
+                
+            }
+        </script>
+    </body>
+
+</html> 

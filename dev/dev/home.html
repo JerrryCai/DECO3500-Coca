@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: gray;
+      }
+      .bg {
+        margin: 50px auto;
+        width: 300px;
+        position: relative;
+      }
+      .phoneBg {
+        width: 300px;
+      }
+      .home {
+        position: absolute;
+        top: 40px;
+        left: 25px;
+        width: 210px;
+        height: 500px;
+        padding: 10px 20px;
+      }
+
+      /* Title */
+      .title {
+        height: 30px;
+      }
+      .title .text {
+        float: left;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .title .photoMe {
+        display: block;
+        float: right;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+      }
+      .title .photoPartner {
+        display: block;
+        float: right;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      /* My sharing accounts */
+      .sharingAccount {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .boxOne {
+        height: 130px;
+        border-radius: 10px;
+        border: 1px solid black;
+        box-shadow: 0 2px 0 #FFB6B9;
+      }
+      .boxOne .top {
+        font-size: 12px;
+        padding-left: 6px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #FFB6B9;
+        padding-top: 2px;
+      }
+      .boxOne .top p {
+        padding-top: 2px;
+        padding-bottom: 1px;
+        padding-left: 3px;
+        margin: 0;
+      }
+      .boxOne .top p span {
+        font-weight: 700;
+      }
+      .boxOne .top button {
+        border-radius: 20px;
+        border: 1px solid black;
+        margin-left: 20px;
+        margin-top: 7px;
+        background-color: #C2F0FC;
+      }
+      .boxOne .bottom {
+        display: flex;
+        flex-direction: row;
+      }
+      .boxOne .bottom span {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #FAE3D9;
+        text-align: center;
+        line-height: 25px;
+        font-size: 20px;
+        float: left;
+        margin-top: 4px;
+        margin-left: 6px;
+      }
+
+      /* account library */
+      .accountLibrary {
+        margin-top: 15px;
+        padding: 0;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .boxTwo {
+        height: 190px;
+        border-radius: 10px;
+        border: 1px solid black;
+        box-shadow: 0 2px 0 #FFB6B9;
+      }
+      .boxTwo .myAccount {
+        margin: 5px;
+        font-size: 12px;
+      }
+      .boxTwo .myAccountDiv {
+        height: 50px;
+        background-color: white;
+      }
+      .boxTwo .myAccountDiv p{
+        font-size: 12px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: gray;
+      }
+      .boxTwo .partnerAccount {
+        margin: 5px;
+        font-size: 12px;
+      }
+
+      .boxTwo .partnerAccountDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1px 10px;
+        margin-bottom: 10px;
+      }
+      .boxTwo .partnerAccountDiv .icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      /*   background-color: #C2F0FC; */
+      }
+      .QQMusic{
+        background-image: url(./image/qqMusic.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .boxTwo .partnerAccountDiv .name {
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+      .boxTwo .partnerAccountDiv .use {
+        width: 40px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: #C2F0FC;
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 20px;
+        border: 1px solid black;
+      }
+
+      /* Navigation Bar */
+      .navigation {
+        width: 190px;
+        padding: 7px 7px;
+        border: 1px solid black;
+        border-radius: 30px;
+        background-color: #FBF4F9;
+        box-shadow: 0 3px 0 #FFB6B9;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        line-height: 40px;
+        position: absolute;
+        left: 23px;
+        bottom: 15px;
+      }
+      .navigation .homeIcon {
+        display: block;
+        margin-left: 16px;
+        width: 25px;
+        height: 25px;
+      }
+      .navigation .star {
+        display: block;
+        width: 25px;
+        height: 25px;
+      }
+      .navigation .user {
+        display: block;
+        width: 25px;
+        height: 25px;
+        margin-right: 16px;
+      }
+
+      /* Add Account */
+      .addAccount {
+        position: absolute;
+        top: 100px;
+        width: 195px;
+        height: 250px;
+        border-radius: 15px;
+        border: 0px solid black;
+        padding-left: 15px;
+        background-color: #FAE3D9;
+        display: none;
+      }
+      .addAccount .close {
+        display: block;
+        text-align: center;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        border-radius: 50%;
+        border: 1px solid black;
+        float: right;
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+      .addAccount .choose {
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+        font-size: 12px;
+      }
+      .addAccount .choose span {
+        font-weight: 600;
+      }
+      .addAccount .choose select {
+        width: 80px;
+        margin-left: 5px;
+        font-size: 12px;
+      }
+      .addAccount .username {
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 15px;
+      }
+      .addAccount .username input {
+        margin-top: 5px;
+        border: 1px solid black;
+        border-radius: 20px;
+        height: 20px;
+        margin-left: 6px;
+        padding-left: 10px;
+      }
+      .addAccount .password {
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 15px;
+      }
+      .addAccount .password input {
+        margin-top: 5px;
+        border: 1px solid black;
+        border-radius: 20px;
+        height: 20px;
+        margin-left: 6px;
+        padding-left: 12px;
+      }
+      .addAccount .confirmBtn {
+        width: 170px;
+        height: 25px;
+        border-radius: 30px;
+        border: 1px solid black;
+        margin-top: 30px;
+        background-color: #C2F0FC;
+        font-weight: 600;
+        margin-left: 6px;
+      }
+
+      /* Share with partner successfully */
+      .shareSuccess {
+        position: absolute;
+        top: 80px;
+        width: 190px;
+        height: 250px;
+        border-radius: 15px;
+        border: 1px solid black;
+        background-color: #C2F0FC;
+        text-align: center;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        display: none;
+      }
+      .shareSuccess .picture {
+        position: absolute;
+        width: 50px;
+        left: 80px;
+        height: 50px;
+        /* border-radius: 50%; */
+        margin: 30px auto 20px;
+        background-image: url(./image/appleMusic.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .shareSuccess span {
+        position: absolute;
+        top: 90px;
+        left: 10px;
+        right: 10px;
+        font-size: 15px;
+      }
+      .shareSuccess .okBtn {
+        width: 60px;
+        border-radius: 30px;
+        border: 1px solid black;
+        background-color: #FFB6B9;
+        margin:0 auto;
+        position: absolute;
+        bottom: 30px;
+        left: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg">
+      <img class="phoneBg" src="./image/phone.png" />
+      <div class="home">
+        <!-- title -->
+        <div class="title">
+          <span class="text">Hi, Cloe!</span>
+          <img class="photoMe" src="image/myPhoto.jpg" alt="myPhoto">
+          <img class="photoPartner" src="./image/robin.jpg" alt="myPartnerPhoto">
+        </div>
+
+        <!-- My sharing accounts -->
+        <h2 class="sharingAccount">My Sharing Accounts</h2>
+        <div class="boxOne">
+          <div class="top">
+            <p><span>User name: </span>Cloe</p>
+            <p><span>Your partner: </span>Robin</p>
+            <p><span>My sharing accounts: </span>0</p>
+            <button>Adding sharing accounts</button>
+          </div>
+          <div class="bottom">
+            <span>+</span>
+          </div>
+        </div>
+
+        <!-- account library -->
+        <h2 class="accountLibrary">Account Library</h2>
+        <div class="boxTwo">
+          <h3 class="myAccount">My Accounts:</h3>
+          <div class="myAccountDiv">
+            <p>You don't have any accounts in the library yet</p>
+          </div>
+          <h3 class="partnerAccount">Partner's Accounts:</h3>
+          <!-- <div class="partnerAccountDiv">
+            <span class="icon"></span>
+            <span class="name">Youtube</span>
+            <span class="use">Use</span>
+          </div> -->
+          <div class="partnerAccountDiv">
+            <span class="icon QQMusic"></span>
+            <span class="name">QQ Music</span>
+            <span class="use music">Use</span>
+          </div>
+        </div>
+
+        <!-- Add Account -->
+        <div class="addAccount">
+          <span class="close">X</span>
+          <div class="choose">
+            <span>Choose platform:</span>
+            <select name="" id="">
+              <!-- <option value="">YouTube</option>
+              <option value="">Netflix</option> -->
+              <option value="">Apple Music</option>
+              <!-- <option value="">Spotify</option> -->
+            </select>
+          </div>
+          <div class="username">
+            <span>Username:</span>
+            <input type="text" value="" />
+          </div>
+          <div class="password">
+            <span>Password:</span>
+            <input type="password" />
+          </div>
+          <button class="confirmBtn">Confirm</button>
+        </div>
+
+        <!-- Share with partner successfully -->
+        <div class="shareSuccess">
+          <div class="picture"></div>
+          <span>You share the account with your partner successfully!</span>
+          <button class="okBtn">OK</button>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="navigation">
+          <img class="homeIcon" src="image/iconHouse.png" alt="iconHome">
+          <img class="star" src="./image/iconHeart.png" alt="iconHeart">
+          <img class="user" src="./image/iconUser.png" alt="iconUser">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* navigation */
+      var homeIcon =document.querySelector('.homeIcon');
+      var star = document.querySelector('.star');
+      var user = document.querySelector('.user');
+      
+      homeIcon.style.cursor = "pointer";
+      star.style.cursor = "pointer";
+      user.style.cursor = "pointer";
+
+      star.onclick = function(){
+        window.location.href = 'memoryBefore.html';
+      }
+      
+
+        /* use button */
+        var partnerUseBtn = document.querySelector('.music');
+            partnerUseBtn.style.cursor = "pointer";
+            partnerUseBtn.onclick = function(){
+                window.location.href = 'music.html';
+            }
+      /* button */
+      var shareBtn = document.querySelector(".top").querySelector("button");
+      var shareIcon = document.querySelector(".bottom").querySelector("span");
+      /* div */
+      var accountLibraryH2 = document.querySelector(".accountLibrary");
+      var libraryDiv = document.querySelector(".boxTwo");
+      var sharingAccountDiv = document.querySelector(".boxOne");
+      var addAccountDiv = document.querySelector(".addAccount");
+      /* add account */
+      var closeBtn = document.querySelector(".close");
+      var okBtn = document.querySelector('.okBtn');
+
+
+      var usernameInput = document
+        .querySelector(".addAccount")
+        .querySelector(".username")
+        .querySelector("input");
+      var passwordInput = document
+        .querySelector(".addAccount")
+        .querySelector(".password")
+        .querySelector("input");
+      var confirmBtn = document.querySelector(".confirmBtn");
+      /* share with partner successfully */
+      var shareSuccess = document.querySelector(".shareSuccess");
+
+      /* click event */
+      shareBtn.style.cursor = 'pointer';
+      shareBtn.onclick = function () {
+        accountLibraryH2.style.display = "none";
+        libraryDiv.style.display = "none";
+        sharingAccountDiv.style.display = "none";
+        addAccountDiv.style.display = "block";
+        closeBtn.style.cursor = "pointer";
+        /* close button */
+        closeBtn.onclick = function () {
+          accountLibraryH2.style.display = "block";
+          libraryDiv.style.display = "block";
+          sharingAccountDiv.style.display = "block";
+          addAccountDiv.style.display = "none";
+        };
+        /* choose accounts */
+        confirmBtn.style.cursor = "pointer";
+        confirmBtn.onclick = function () {
+          if (usernameInput.value == "") {
+            alert("please input your username!");
+          } else {
+            if (passwordInput.value == "") {
+              alert("please input your password!");
+            } else {
+              shareSuccess.style.display = "block";
+              addAccountDiv.style.display = "none";
+              okBtn.style.cursor = 'pointer';
+              okBtn.onclick = function(){
+                window.location.href = 'newHome.html';
+              }
+            }
+          }
+        };
+      };
+    
+      shareIcon.style.cursor = 'pointer';
+      shareIcon.onclick = function () {
+        accountLibraryH2.style.display = "none";
+        libraryDiv.style.display = "none";
+        sharingAccountDiv.style.display = "none";
+        addAccountDiv.style.display = "block";
+        closeBtn.style.cursor = "pointer";
+        /* close button */
+        closeBtn.onclick = function () {
+          accountLibraryH2.style.display = "block";
+          libraryDiv.style.display = "block";
+          sharingAccountDiv.style.display = "block";
+          addAccountDiv.style.display = "none";
+        };
+        /* choose accounts */
+        confirmBtn.style.cursor = "pointer";
+        confirmBtn.onclick = function () {
+          if (usernameInput.value == "") {
+            alert("please input your username!");
+          } else {
+            if (passwordInput.value == "") {
+              alert("please input your password!");
+            } else {
+              shareSuccess.style.display = "block";
+              addAccountDiv.style.display = "none";
+              okBtn.style.cursor = 'pointer';
+              okBtn.onclick = function(){
+                window.location.href = 'newHome.html';
+              }
+            }
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
