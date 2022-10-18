@@ -1,4 +1,4 @@
-# DECO3500-Coca
+# README
 ## Overview:
 Our project is an application for couples to share entertainment-platform accounts. Our research found that most couples share accounts on platforms such as movies and music with each other. The main reason is trust, followed by saving money. However, through our in-depth investigation, we found that many couples face the problem of difficult account management and cumbersome sharing steps when sharing accounts. Therefore, we designed an application to share accounts based on user needs. It integrates with various entertainment and social platforms to make it easier to share accounts and help users manage their accounts better.
 
