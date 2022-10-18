@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Person Page</title>
+    <script src="script.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: gray;
+      }
+
+      .bg {
+        margin: 50px auto;
+        width: 300px;
+        position: relative;
+      }
+
+      .phoneBg {
+        width: 300px;
+      }
+
+      .home {
+        width: 250px;
+        height: 520px;
+        /* border: 1px solid orange; */
+        position: absolute;
+        top: 40px;
+        left: 25px;
+        /* background-color: white; */
+      }
+      #opacity {
+        opacity: 0.2;
+      }
+
+      /* menu box */
+      .menuBox {
+        margin: 15px auto;
+        display: flex;
+        margin-left: 10px;
+        flex-direction: row;
+      }
+
+      .menuBox .menu {
+        display: block;
+        width: 25px;
+        height: 25px;
+        border: 2px solid black;
+        border-radius: 50%;
+        float: left;
+        margin-right: 10px;
+        background-color: lightskyblue;
+        background-image: url(./image/menu.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .menuBox h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        font-weight: 500;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      /* person box */
+      .personBox {
+        margin: 10px auto;
+        width: 220px;
+        height: 150px;
+        border-radius: 20px;
+        border: 1px solid black;
+        box-shadow: 0 3px 2px palevioletred;
+      }
+
+      .personBox .top {
+        height: 75px;
+        border-bottom: 1px solid rgb(155, 153, 153);
+        text-align: center;
+      }
+
+      .personBox .top .photo {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 10px auto 5px;
+        border: 1px solid black;
+        background-image: url(./image/myPhoto.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .personBox .top p {
+        margin-top: 0;
+        padding: 0;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .personBox .bottom {
+        padding-left: 10px;
+        padding-top: 10px;
+      }
+
+      .personBox .bottom p {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+      }
+
+      .thinText {
+        font-weight: 400;
+      }
+
+      /* my sharing account */
+      .personPageTitle {
+        font-size: 14px;
+        padding-left: 20px;
+      }
+
+      .accountsBox {
+        margin: 10px auto;
+        width: 210px;
+        height: 75px;
+        border-radius: 10px;
+        border: 1px solid black;
+        padding: 5px;
+        box-shadow: 0 3px 2px rgb(193, 112, 216);
+      }
+
+      .accountsBox .iconList {
+        margin: 0 auto;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+      }
+      .Youtube {
+        background-image: url(./image/appleMusic.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .music {
+        background-image: url(./image/qqMusic.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .accountsBox .iconList span {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid black;
+        margin: 5px;
+      }
+
+      .accountsBox .update {
+        font-size: 12px;
+        border-radius: 20px;
+        border: 1px solid black;
+        background-color: lightskyblue;
+        padding: 0;
+      }
+
+      /* Navigation Bar */
+      .navigation {
+        width: 190px;
+        padding: 7px 7px;
+        border: 1px solid black;
+        border-radius: 30px;
+        background-color: #fbf4f9;
+        box-shadow: 0 3px 0 #ffb6b9;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        line-height: 40px;
+        position: absolute;
+        left: 23px;
+        bottom: 15px;
+      }
+      .navigation .homeIcon {
+        display: block;
+        margin-left: 16px;
+        width: 25px;
+        height: 25px;
+      }
+      .navigation .star {
+        display: block;
+        width: 25px;
+        height: 25px;
+      }
+      .navigation .user {
+        display: block;
+        width: 25px;
+        height: 25px;
+        margin-right: 16px;
+      }
+      /* note */
+      #note {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        padding: 10px;
+        background-color: white;
+        font-size: 13px;
+        width: 180px;
+        height: 170px;
+        border-radius: 20px;
+        border: 1px solid black;
+        display: none;
+        z-index: 999;
+        text-align: center;
+      }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <div class="bg">
+      <img class="phoneBg" src="./image/phone.png" />
+      <div class="home">
+        <!-- menu box -->
+        <div class="menuBox">
+          <span class="menu" id="openMenu" onclick="showNavigation()"></span>
+          <h2>Personal Center</h2>
+        </div>
+
+        <!-- person Box -->
+        <div class="personBox">
+          <div class="top">
+            <span class="photo"></span>
+            <p>Cloe</p>
+          </div>
+          <div class="bottom">
+            <p class="partner">
+              Your Partner: <span class="thinText">None</span>
+            </p>
+            <p class="phone">
+              Phone Number: <span class="thinText">1234567789</span>
+            </p>
+            <p class="accountNum">
+              My Sharing Accounts: <span class="thinText">2</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- my sharing accounts -->
+        <h3 class="personPageTitle">My Sharing Accounts</h3>
+        <div class="accountsBox">
+          <div class="iconList">
+            <span class="Youtube"></span>
+            <span class="music"></span>
+          </div>
+          <!-- <button class="update">Update all sharing accounts' passwords</button> -->
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="navigation">
+          <img class="homeIcon" src="image/iconHouseBlue.png" alt="iconHome" />
+          <img class="star" src="./image/iconHeart.png" alt="iconHeart" />
+          <img class="user" src="./image/iconUserPink.png" alt="iconUser" />
+        </div>
+
+        <!-- Menu -->
+        <div id="menuContents">
+          <div>
+            <img src="./image/myPhoto.jpg" alt="user" />
+            <p>Cloe</p>
+          </div>
+          <ul>
+            <li class="statement">Statement of Relationship<br />My Partner: Robin</li>
+            <li>Change the Password Here</li>
+            <li>Log out</li>
+          </ul>
+          <button id="end">End Relationship</button>
+        </div>
+
+        <!-- note -->
+        <div id="note">
+          Are you sure to end the relationship with your partner? The whole
+          sharing diary will be deleted if you are sure! If you are sure, we
+          will end sharing after 24h, and you can cancel any time in this
+          period.
+          <br>
+          <button id="sure">Yes</button>
+          <button id="no">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /** end relationship */
+      var endBtn = document.getElementById("end");
+      var note = document.getElementById('note');
+      var statement = document
+        .getElementById("menuContents")
+        .querySelector("ul").children[0];
+      var yesBtn = document.getElementById('sure');
+      var noBtn = document.getElementById('no');
+      var statement = document.querySelector('.statement');
+
+      statement.style.cursor = "pointer";
+      yesBtn.style.cursor = 'pointer';
+      noBtn.style.cursor = 'pointer';
+
+      var countNumber = 1;
+      statement.onclick = function () {
+        if (countNumber % 2 == 1) {
+          endBtn.style.display = "block";
+          // click button
+          endBtn.style.cursor = 'pointer';
+          endBtn.onclick = function () {
+            note.style.display = 'block';
+            yesBtn.onclick = function(){
+              note.style.display = 'none';
+              endBtn.innerHTML = 'Add Partner';
+              endBtn.style.backgroundColor = 'pink';
+              statement.innerHTML = 'Statement of Relationship<br />My Partner: None';
+              endBtn.onclick = function(){
+                window.location.href = "addPartner.html";
+              }
+            }
+            noBtn.onclick = function(){
+              note.style.display = 'none';
+            }
+          };
+        } else {
+          endBtn.style.display = "none";
+        }
+        countNumber++;
+      };
+
+      /* navigation */
+      var homeIcon = document.querySelector(".homeIcon");
+      var star = document.querySelector(".star");
+      var user = document.querySelector(".user");
+
+      homeIcon.style.cursor = "pointer";
+      star.style.cursor = "pointer";
+      user.style.cursor = "pointer";
+
+      homeIcon.onclick = function () {
+        window.location.href = "newHome.html";
+      };
+
+      star.onclick = function () {
+        window.location.href = "memory.html";
+      };
+
+      var openMenu = document.querySelector("#openMenu");
+      openMenu.style.cursor = "pointer";
+
+
+    </script>
+  </body>
+</html>
